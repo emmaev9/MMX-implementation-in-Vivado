@@ -31,7 +31,14 @@ Tehnologia MMX este o extensie multimedia a procesorului Pentium dezvoltata de I
 3. Design
 
   Design-ul top level a unitații aritmetice de tip MMX se poate observa în figura de mai jos. Unitatea de control e cea care dă funcționalitatea arhitecturii MMX. Ca intrare are switch-urile, iar ieșirile sunt semnalele care vor controla restul componentelor. Componentele au fost prezentate deja în partea de analiza, iar în acestă figura se pot observa și legăturile dintre componente. Fiecare instrucțiune are o componentă diferită, iar rezultatele intrucțiunilor intră într-un multiplexor care în funcție de selecția dată deunitatea de control va da ieșirea pentru ALU. Rezultatul operației se va scrie într-un registru MMX. Adresa la care se va scrie rezultatul este dată de unitatea de control. Memoria ROM pe 32 biți este folosită doar la instrucțiunea MOVD. Ieșirea din memorie va fi extinsă cu semn la 64 biți, iar prin semnalul AluSrcB se va decide dacă în ALU intră o date dintr-un registru MMX, sau date din memoria ROM.
-  
+  Componente necesare: 
+- Un numărător pe 5 biți pentru shiftare și un numărător pe 2 biți cu ajutorul căruia afișăm pe afișor câte 16 biți pe rând.
+- O memoorie ROM cu cuvinte de 32 biti care va reține date pentru instructiunea MOVD.
+- Un bloc de regiștrii care va conține cei 8 regiștrii MMX de 64 biți, notați de la MM0 la MM7. Registrii vor putea fi citiți combinațional și se va putea scrie în ei secvențial. In acesti registrii se vor afla datele de input si tot in acesti registrii se va scrie rezultatul operatiilor.
+- O unitate aritmetico-logică care conține componentele pentru instrucțiuni având ca intrare 2 operanzi pe 64 biți citiți din registrii și o intrucțiune data de unitatea de control. Ieșirea din unitatea aritmetico-logică va avea ca ieșire rezultatul operației, iar acest rezultat se va putea vizualiza pe afișor.
+- O unitate de control (reprezentată în Figura 1) care va da semnale pentru restul componentelor.
+- Câte o componentă separată pentru fiecare instrucțiune
+
   ![alt text](https://github.com/emmaev9/MMX-implementation-in-Vivado/blob/main/designMMX.png?raw=true)
 
 4. Manual de utilizare
@@ -53,10 +60,12 @@ Tehnologia MMX este o extensie multimedia a procesorului Pentium dezvoltata de I
 - SW10: PSRAD
 - SW11: PSRAQ
 
-  Când toate switch-urile vor fi inactive, pe afișor se va putea observa primul operand, sau cel 
-puțin primii 16 biți ai acestuia. Pentru a putea vedea restul biților se va apasa butonul BTNR. De 
-asemenea, când SW14 va fi activat, pe afișor va apărea al doilea operand, biții acestuia 
-putând fi vizualizați în același mod, cu ajutorul butonului.
+  Când toate switch-urile vor fi inactive, pe afișor se va putea observa primul operand, sau cel puțin primii 16 biți ai acestuia. Pentru a putea vedea restul biților se va apasa butonul BTNR. De asemenea, când SW14 va fi activat, pe afișor va apărea al doilea operand, biții acestuia putând fi vizualizați în același mod, cu ajutorul butonului.
+  Butoanele au urmatoarele functionalitati: 
+- btn U18: Reset   
+- btn T18: Register Enable (permite scrierea in registru)  
+- btn W19: SSD Enable (pentru afisarea pe rand a cate 2 bytes)
+- btn T17: Shift Enable (pentru operatia de shiftare)
   
 
 
