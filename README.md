@@ -9,24 +9,24 @@ Tehnologia MMX este o extensie multimedia a procesorului Pentium dezvoltata de I
 2. Instructiuni
 
   Cele 6 instructiuni implementate din setul de sunt urmatoarele:
-    o MOVD
-    o PADDB, PADDW, PADDD, PADDQ
-    o PMADDWD
-    o PCMPEQW 
-    o PAND
-    o PSRAB, PSRAW, PSRAD, PSRAQ
+    - MOVD
+    - PADDB, PADDW, PADDD, PADDQ
+    - PMADDWD
+    - PCMPEQW 
+    - PAND
+    - PSRAB, PSRAW, PSRAD, PSRAQ
     
-    Instrucțiunea MOVD (move double word) copiaza datele dintr-un un registru de întregi pe 32 biti sau o locație de memorie de un dublu-cuvant într-un un registru MMX. Daca destinatia este un registru MMX, această instrucțiune zero-extinde valoarea în timp ce o mută. Daca destinația este un registru de 32 biți sau o locație de memorie, această instrucțiune copiaza primii 32 biți ai registrului MMX în destinație.
+   Instrucțiunea MOVD (move double word) copiaza datele dintr-un un registru de întregi pe 32 biti sau o locație de memorie de un dublu-cuvant într-un un registru MMX. Daca destinatia este un registru MMX, această instrucțiune zero-extinde valoarea în timp ce o mută. Daca destinația este un registru de 32 biți sau o locație de memorie, această instrucțiune copiaza primii 32 biți ai registrului MMX în destinație.
+   
+   Instrucțiunile PADDD, PADDB, PADDW și PADDQ (add packed doubleword/byte/word/quadword) adună octeții(B)/cuvintele(W)/dublu-cuvintele(D) utilizând adunare “wrap-around” (nesaturată). Orice transport al sumei este pierdut. Este responsabilitatea programatorului să asigure ca depășirea să nu apară. Acestă instrucțiune produce rezultat corect pentru operanzi de tipul signed si unsigned (presupunând că depășirea nu apare).
 
-    Instrucțiunile PADDD, PADDB, PADDW și PADDQ (add packed doubleword/byte/word/quadword) adună octeții(B)/cuvintele(W)/dublu-cuvintele(D) utilizând adunare “wrap-around” (nesaturată). Orice transport al sumei este pierdut. Este responsabilitatea programatorului să asigure ca depășirea să nu apară. Acestă instrucțiune produce rezultat corect pentru operanzi de tipul signed si unsigned (presupunând că depășirea nu apare).
+   Instructiunea PMADDWD înmulțește cele patru cuvinte din operandul de sursa cu cele patru cuvinte din operandul de destinație pentru a rezulta un produs de patru dublu cuvinte. După aceea adună cele mai putin semnificative două cuvinte și le salvează în primele două dublu-cuvinte(cele mai puțin semnificative) din registrul de destinație. La fel procedează și cu cele mai semnificative dublu-cuvinte.
 
-    Instructiunea PMADDWD înmulțește cele patru cuvinte din operandul de sursa cu cele patru cuvinte din operandul de destinație pentru a rezulta un produs de patru dublu cuvinte. După aceea adună cele mai putin semnificative două cuvinte și le salvează în primele două dublu-cuvinte(cele mai puțin semnificative) din registrul de destinație. La fel procedează și cu cele mai semnificative dublu-cuvinte.
+   Instrucțiunile de comparație împachetate compară destinația(al doilea oprand) cu sursa (primul opeand) pentru a testa egalitatea sau daca unul este mai mare decât celălalt. Instructiunea PCMPEQW compara patru perechi de octeți. Rezultatul comparației (adevarat sau fals) se va afla in cel de al doilea operand (în destinație).
 
-    Instrucțiunile de comparație împachetate compară destinația(al doilea oprand) cu sursa (primul opeand) pentru a testa egalitatea sau daca unul este mai mare decât celălalt. Instructiunea PCMPEQW compara patru perechi de octeți. Rezultatul comparației (adevarat sau fals) se va afla in cel de al doilea operand (în destinație).
+   Instrucțiunea PAND (bitwise logical AND) face același lucru ca și varianta ei de 32 de biți întregi AND, exceptând desigur faptul că operează pe doi operanzi MMX de 64 biți.
 
-    Instrucțiunea PAND (bitwise logical AND) face același lucru ca și varianta ei de 32 de biți întregi AND, exceptând desigur faptul că operează pe doi operanzi MMX de 64 biți.
-
-    Instrucțiunea PSRAB efectueaza o operație de shiftare la dreapta. În timp ce se shifteaza cuvantul la dreapta, instrucțiunea replica bitul cel mai semnificativ în loc să pună zero. În cazul shiftării logice la dreapta, biții cei mai puțin semnificativi care sunt shiftați sunt pierduți pentru totdeauna.Intrucțiunile PSRAD, PSRAW, PSRAQ procedează în același mod, cu diferența că operează cu cuvinte/dublu-cuvinte/cvadruplu.
+   Instrucțiunea PSRAB efectueaza o operație de shiftare la dreapta. În timp ce se shifteaza cuvantul la dreapta, instrucțiunea replica bitul cel mai semnificativ în loc să pună zero. În cazul shiftării logice la dreapta, biții cei mai puțin semnificativi care sunt shiftați sunt pierduți pentru totdeauna.Intrucțiunile PSRAD, PSRAW, PSRAQ procedează în același mod, cu diferența că operează cu cuvinte/dublu-cuvinte/cvadruplu.
 
 3. Design
 
