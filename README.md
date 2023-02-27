@@ -43,10 +43,10 @@ Tehnologia MMX este o extensie multimedia a procesorului Pentium dezvoltata de I
 
 4. Manual de utilizare
   
-  Instructiunile au fost implementate in Vivado, iar ulterior codul a fost pus pe placuta Basys 3. Placuța Basys 3 dispune de 16 switch-uri, 16 led-uri, 5 butoane și 4 afișoare cu șapte segmente. 
-  Unele instrucțiuni folosesc tipul de date pe 64 de biți(cvadruplul) sau pe 32 de biți(dublu cuvantul), însă cum am menționat anterior, display-ul plăcuței dispune de 4 afișoare, adică 16 biți. Așadar, în cazul dublu-cuvantului si cvandruplului se vor afișa biții 16 cate 16, începând de la cel mai puțin semnificativi biți. Pentru afișarea operanzilor se vor folosi switch-ul 4 (W15) și switch-ul 5 (V15). Apasarea butonului BTNR (T17) va afișa biții operanzilor cum am menționat anterior, de la cel mai puțin semnificativi 16 biți la cel mai semnificativi.
+  Fisierele sursa si fisierul .BIT trebuie incarcate intr-un nou proiect Vivado, iar ulterior codul trebuie incarcat pe o placuta Basys 3. Placuța Basys 3 dispune de 16 switch-uri, 16 led-uri, 5 butoane și 4 afișoare cu șapte segmente. 
+  Unele instrucțiuni folosesc tipul de date pe 64 de biți(cvadruplul) sau pe 32 de biți(dublu cuvantul), display-ul plăcuței dispune de 4 afișoare, adică 16 biți. Așadar, în cazul dublu-cuvantului si cvandruplului se vor afișa biții 16 cate 16, începând de la cel mai puțin semnificativi biți. Pentru afișarea operanzilor se vor folosi switch-ul 4 (W15) și switch-ul 5 (V15). Apasarea butonului BTNR (T17) va afișa biții operanzilor cum am menționat anterior, de la cel mai puțin semnificativi 16 biți la cel mai semnificativi.
   
-  Alegerea instructiunii se va face prin switch-urile placutei Basys in felul urmator
+  Alegerea instructiunii se va face prin switch-urile placutei in felul urmator:
 - SW0: PADDB
 - SW1: PADDW
 - SW2: PADDD
@@ -66,6 +66,13 @@ Tehnologia MMX este o extensie multimedia a procesorului Pentium dezvoltata de I
 - btn T18: Register Enable (permite scrierea in registru)  
 - btn W19: SSD Enable (pentru afisarea pe rand a cate 2 bytes)
 - btn T17: Shift Enable (pentru operatia de shiftare)
+
+5. Concluzie
+
+  Scopul acestui proiect a fost să înteleg, în primul rând, ce presupune o unitate aritmetică de tip MMX. După ce am înțeles conceptele de bază a fost destul de ușor să implementez intrucțiunile pe care mi-am propus să le implementez. Mi-a plăcut la acest proiect faptul că nu am fost limitată la un singur mod de implementare, ci am 
+avut șansa de a-mi alege propriul mod de a aborda lucrurile și, desigur, am învățat din propriile greșeli.
+
+
   
 
 
