@@ -31,6 +31,8 @@ Tehnologia MMX este o extensie multimedia a procesorului Pentium dezvoltata de I
 3. Design
 
   Design-ul top level a unitații aritmetice de tip MMX se poate observa în figura de mai jos. Unitatea de control e cea care dă funcționalitatea arhitecturii MMX. Ca intrare are switch-urile, iar ieșirile sunt semnalele care vor controla restul componentelor. Componentele au fost prezentate deja în partea de analiza, iar în acestă figura se pot observa și legăturile dintre componente. Fiecare instrucțiune are o componentă diferită, iar rezultatele intrucțiunilor intră într-un multiplexor care în funcție de selecția dată deunitatea de control va da ieșirea pentru ALU. Rezultatul operației se va scrie într-un registru MMX. Adresa la care se va scrie rezultatul este dată de unitatea de control. Memoria ROM pe 32 biți este folosită doar la instrucțiunea MOVD. Ieșirea din memorie va fi extinsă cu semn la 64 biți, iar prin semnalul AluSrcB se va decide dacă în ALU intră o date dintr-un registru MMX, sau date din memoria ROM.
+  
+  ![alt text](https://github.com/emmaev9/MMX-implementation-in-Vivado/blob/main/designMMX.png?raw=true)
 
 4. Manual de utilizare
   
